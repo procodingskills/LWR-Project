@@ -1,0 +1,55 @@
+<!--
+  @description       : 
+  @author            : admin@procodingskills.com
+  @group             : 
+  @last modified on  : 10-13-2021
+  @last modified by  : admin@procodingskills.com
+-->
+
+<template>
+    <div class="slds-card">
+        <lightning-input type="text" class="input-c" data-id="skill_input" value={_skillName} label="Change your Skill" onchange={handleInputChange}>
+        </lightning-input>
+        
+    </div>
+    <br/>
+        <lightning-button onclick={handleClassQuery} label="Get values Based on Class Name">
+        </lightning-button>
+        <lightning-button onclick={handlePropertyQuery} label="Get based on Custom Attribute">
+        </lightning-button>
+    <br/>
+    <div class="slds-card">
+        My Skill is {_skillName}
+    </div>
+    <br/>
+    <div class="slds-card" data-id="outputPan">
+        OUTPUT : {_outputProperty}
+    </div>
+    <br/>
+   
+    <lightning-card title="Query Selector All Example">
+            <lightning-button slot="actions" label="Get Full Name" onclick={getFullName}></lightning-button>
+            <p class="slds-p-horizontal_small">
+                <lightning-input label="First Name" value=""></lightning-input>
+                <lightning-input label="Middel Name" value=""></lightning-input>
+                <lightning-input label="Last Name" value=""></lightning-input>
+            </p>
+            <p slot="footer">
+                Full Name is {_fullName}
+            </p>
+    </lightning-card>
+
+    <br/>
+    <!-- Conditional Statements Demo 1-->
+    <lightning-card title="Conditional Statement 1 Example">
+        <p class="slds-p-horizontal_small">
+            <lightning-checkbox-group name="Skills" label="Select Skills"
+                            options={_optionsConditional}
+                            value={_selecetdSkills} onchange={handleSkillSelect}>
+            </lightning-checkbox-group>
+        </p>
+        <p slots="footer" if:true={_ouputSelectedSkills}>
+            The skills selected are {_ouputSelectedSkills}
+        </p>
+    </lightning-card>
+</template>
